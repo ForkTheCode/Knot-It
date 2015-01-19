@@ -46,6 +46,8 @@ export ANDROID_HOME=/opt/tools/android-sdk
 Please fork this repository and contribute back using
 [pull requests](https://github.com/ForkTheCode/Knot-It/pulls).
 
+Contribute your code in the branch 'Dev'. It will give us a better chance to test your code before merging it with stable code.
+
 Any contributions, large or small, major features, bug fixes, additional
 language translations, unit/integration tests are welcomed and appreciated
 but will be thoroughly reviewed and discussed.
