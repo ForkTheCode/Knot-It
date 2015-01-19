@@ -1,0 +1,129 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.forkthecode.knotit.AddNew" >
+
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/addimage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxHeight="@dimen/max_height"
+                android:scaleType="centerCrop"
+                android:src="@color/transparent"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/addTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:layout_marginRight="@dimen/margin_5"
+                android:layout_marginTop="@dimen/margin_5"
+                android:hint="@string/title"
+                android:inputType="textCapWords|textAutoComplete"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:textSize="@dimen/text_22"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/addDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:layout_marginRight="@dimen/margin_5"
+                android:layout_marginTop="@dimen/margin_5"
+                android:hint="@string/desc"
+                android:inputType="textMultiLine"
+                android:maxHeight="@dimen/max_height"
+                android:textSize="@dimen/text_18" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/imageclock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_5"
+                    android:layout_marginStart="@dimen/margin_5"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:src="@drawable/ic_action_time" />
+
+
+                <TextView
+                    android:id="@+id/pickdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:onClick="pickDate"
+                    android:text="@string/select_date"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/picktime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:gravity="center_vertical"
+                    android:onClick="pickTime"
+                    android:text="@string/select_time"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/repeat"
+                    android:id="@+id/checkBoxadd"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:layout_marginLeft="@dimen/margin_5"
+                    android:textSize="16sp"
+                    android:checked="false"
+                    android:textColor="@color/abc_secondary_text_material_light" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinnerAdd"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:spinnerMode="dropdown"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

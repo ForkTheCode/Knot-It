@@ -1,0 +1,80 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="in.knotit.app.MainActivity"
+    xmlns:knotit="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/knot_info"
+        android:orderInCategory="100"
+        knotit:showAsAction="never"
+        android:title="@string/feedback"/>
+    
+      <item
+        android:id="@+id/knot_delt"
+        android:orderInCategory="90"
+        knotit:showAsAction="never"
+        android:title="@string/clear_data"/>
+    <item
+        android:title="@string/sort_by"
+        android:icon="@drawable/ic_sort_white_48dp"
+        knotit:showAsAction="ifRoom">
+        <menu>
+
+            <item
+                android:id="@+id/menuSortReminder"
+                android:title="@string/Sort_by_Reminder" />
+            <item
+                android:id="@+id/menuSortTitle"
+                android:title="@string/sort_by_title" />
+            <item
+                android:id="@+id/menuSortEdited"
+                android:title="@string/sort_by_edited" />
+
+        </menu>
+    </item>
+
+   <item
+        android:title="@string/Set_Vibration_Pattern"
+        knotit:showAsAction="never">
+        <menu>
+
+            <item
+                android:id="@+id/vib6"
+                android:title="James Bond 007" />
+            <item
+                android:id="@+id/vib1"
+                android:title="Super Mario Theme" />
+            <item
+                android:id="@+id/vib2"
+                android:title="Teenage Mutant Ninja Turtles" />
+            <item
+                android:id="@+id/vib3"
+                android:title="Voltron Theme" />
+            <item
+                android:id="@+id/vib4"
+                android:title="Final Fantasy Victory Fanfare" />
+            <item
+                android:id="@+id/vib5"
+                android:title="Star Wars Imperial March" />
+            <item
+                android:id="@+id/vib7"
+                android:title="Go Go Power Rangers" />
+            <item
+                android:id="@+id/vib8"
+                android:title="Mortal Kombat Theme" />
+            <item
+                android:id="@+id/vib9"
+                android:title="Michael Jackson - Smooth Criminal" />
+            <item
+                android:id="@+id/vib0"
+                android:title="@string/Knot_It_Default" />
+            <item
+                android:id="@+id/vib10"
+                android:title="@string/Android_Default" />
+
+
+
+        </menu>
+    </item>
+
+</menu>

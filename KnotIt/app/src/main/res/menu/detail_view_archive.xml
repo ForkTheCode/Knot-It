@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:knotit="http://schemas.android.com/apk/res-auto"
+    tools:context="in.knotit.app.DetailView" >
+    <item
+        android:id="@+id/deleteArchive"
+        android:title="@string/delete"
+        android:icon="@drawable/ic_action_discard"
+        knotit:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/unarchive"
+        android:title="@string/move_to_knots"
+        android:icon="@drawable/ic_material_unarchive_light"
+        knotit:showAsAction="always"/>
+
+</menu>

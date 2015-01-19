@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ListView
+        android:id="@+id/main_listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentTop="false"
+        android:footerDividersEnabled="true"
+        android:drawSelectorOnTop="false"
+        android:background="@color/background_material_light"
+        android:dividerHeight="1dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:divider="@color/accent">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="@dimen/text_22"
+        android:text="@string/houston_problem_error"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/text"
+        android:layout_marginBottom="50dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_action_done"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>

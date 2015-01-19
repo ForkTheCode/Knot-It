@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="2">
+
+    <ImageView
+        android:id="@+id/knot_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxHeight="@dimen/max_height"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_not_available" />
+
+    <LinearLayout
+        android:id="@+id/knot_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:id="@+id/knot_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="@dimen/margin_5"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/title"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/knot_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="@dimen/margin_5"
+            android:ellipsize="end"
+            android:maxLines="5"
+            android:text="@string/desc"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/knot_clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:layout_marginStart="@dimen/margin_5"
+                android:layout_marginTop="@dimen/margin_5"
+                android:src="@drawable/ic_action_time" />
+
+            <TextView
+                android:id="@+id/knot_reminder_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginTop="5dp" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/repeat"
+                android:id="@+id/checkBoxknot"
+                android:layout_marginTop="@dimen/margin_5"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:checked="true"
+                android:clickable="false"
+                android:textColor="@color/abc_secondary_text_material_light"
+                android:focusable="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:focusableInTouchMode="false" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
