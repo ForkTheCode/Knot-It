@@ -53,19 +53,7 @@ public class DetailView extends ActionBarActivity implements onImageLoaded{
             if(getWindow()!=null)
 			getWindow().setStatusBarColor(getResources().getColor(R.color.pink_700));
 		}
-        fabButton = new FloatingActionButton.Builder(this)
-                .withDrawable(getResources().getDrawable(R.drawable.ic_action_edit))
-                .withButtonColor(getResources().getColor(R.color.accent))
-                .withGravity(Gravity.BOTTOM | Gravity.END)
-                .withMargins(0, 0, 16, 24)
-                .create();
-        fabButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               edit(v);
-            }
-        });
-        fabButton.showFloatingActionButton();
+
 		Intent i = getIntent();
 		type = i.getIntExtra("type", 1);
 		if(type != 1 && fabButton!=null){
@@ -74,10 +62,19 @@ public class DetailView extends ActionBarActivity implements onImageLoaded{
 			fabButton.hideFloatingActionButton();
 		}
 		else{
-            if(fabButton!=null) {
-                fabButton.setEnabled(true);
-                fabButton.showFloatingActionButton();
-            }
+            fabButton = new FloatingActionButton.Builder(this)
+                    .withDrawable(getResources().getDrawable(R.drawable.ic_action_edit))
+                    .withButtonColor(getResources().getColor(R.color.accent))
+                    .withGravity(Gravity.BOTTOM | Gravity.END)
+                    .withMargins(0, 0, 16, 24)
+                    .create();
+            fabButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    edit(v);
+                }
+            });
+            fabButton.showFloatingActionButton();
 		}
 		title = i.getStringExtra("title");
 		description = i.getStringExtra("description");
@@ -105,8 +102,6 @@ public class DetailView extends ActionBarActivity implements onImageLoaded{
     private void setData() {
 		sv = (ScrollView) findViewById(R.id.scrollView);
 		sv.setVisibility(View.GONE);
-        if(fabButton!=null)
-             fabButton.hideFloatingActionButton();
 		bar = (ProgressBar) findViewById(R.id.progressBar2);
 		bar.setVisibility(View.VISIBLE);
 		TextView titleView = (TextView) findViewById(R.id.detail_textView_title);
@@ -253,9 +248,7 @@ public class DetailView extends ActionBarActivity implements onImageLoaded{
 
 	@Override
 	public void setImage(Drawable d) {
-        if (type == 1 && fabButton != null) {
-            fabButton.showFloatingActionButton();
-        }
+
         bar.setVisibility(View.GONE);
         sv.setVisibility(View.VISIBLE);
         imageView.setImageDrawable(d);

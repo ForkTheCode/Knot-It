@@ -56,7 +56,9 @@ public class AlarmReceiver extends BroadcastReceiver {
         resultIntent.putExtra("repeating_time",repeatingTime);
         PendingIntent contentIntent = PendingIntent.getActivity(context, timeInt, resultIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT );
-        Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        SharedPreferences prefs_sound = context.getSharedPreferences("sound",Context.MODE_PRIVATE);
+        String sound = prefs_sound.getString("sound_uri",RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION).toString());
+        Uri alarmSound = Uri.parse(sound);
         SharedPreferences prefs = context.getSharedPreferences("vibrate",Context.MODE_PRIVATE);
         long[] pattern = defaultL;
         switch ( prefs.getInt("vibrate_key",0)){

@@ -1,5 +1,6 @@
 package com.forkthecode.knotit;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.DialogInterface;
@@ -8,6 +9,8 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Environment;
 import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
@@ -36,6 +39,7 @@ import utilities.tools;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+    String chosenRingtone;
 
     long[] mario = {125,75,125,275,200,275,125,75,125,275,200,600,200,600};
     long[] teenageTurtle = {75,75,75,75,75,75,75,75,150,150,150,450,75,75,75,75,75,525};
@@ -282,10 +286,38 @@ public class MainActivity extends ActionBarActivity
             editor.putInt("vibrate_key", 10);
             editor.apply();
         }
+        else if(id == R.id.setSound){
+            Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_NOTIFICATION);
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, "Select Tone");
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, (Uri) null);
+            this.startActivityForResult(intent, 5);
+        }
 
         return super.onOptionsItemSelected(item);
     }
     private static int type = 0;
+    @Override
+    protected void onActivityResult(final int requestCode, final int resultCode, final Intent intent)
+    {
+        if (resultCode == Activity.RESULT_OK && requestCode == 5)
+        {
+            Uri uri = intent.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
+
+            if (uri != null)
+            {
+                this.chosenRingtone = uri.toString();
+                SharedPreferences prefs = getSharedPreferences("sound",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("sound_uri", chosenRingtone);
+                editor.apply();
+            }
+            else
+            {
+                this.chosenRingtone = null;
+            }
+        }
+    }
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         final FragmentManager fragmentManager = getSupportFragmentManager();

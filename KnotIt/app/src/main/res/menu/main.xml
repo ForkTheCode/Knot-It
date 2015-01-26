@@ -76,5 +76,20 @@
 
         </menu>
     </item>
+    <item
+        android:title="@string/set_sound"
+        android:id="@+id/setSound"
+        knotit:showAsAction="never"
+        >
+
+        </item>
+    <item
+        android:title="@string/about"
+        android:id="@+id/about"
+        knotit:showAsAction="never"
+        android:orderInCategory="110"
+        >
+
+    </item>
 
 </menu>

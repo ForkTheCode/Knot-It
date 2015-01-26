@@ -68,5 +68,7 @@
     <string name="repeat_every_hour">Repeat every hour</string>
     <string name="repeat_every_day">Repeat every day</string>
     <string name="repeat_every_week">Repeat every week</string>
+    <string name="about">About</string>
+    <string name="set_sound">Set Sound</string>
 
 </resources>
