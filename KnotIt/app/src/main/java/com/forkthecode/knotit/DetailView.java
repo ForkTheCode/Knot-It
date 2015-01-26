@@ -56,12 +56,9 @@ public class DetailView extends ActionBarActivity implements onImageLoaded{
 
 		Intent i = getIntent();
 		type = i.getIntExtra("type", 1);
-		if(type != 1 && fabButton!=null){
-            //Display fab only for Knots in "Knots" Section
-			fabButton.setEnabled(false);
-			fabButton.hideFloatingActionButton();
-		}
-		else{
+
+
+		if(type == 1){
             fabButton = new FloatingActionButton.Builder(this)
                     .withDrawable(getResources().getDrawable(R.drawable.ic_action_edit))
                     .withButtonColor(getResources().getColor(R.color.accent))
