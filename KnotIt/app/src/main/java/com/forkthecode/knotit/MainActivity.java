@@ -293,6 +293,11 @@ public class MainActivity extends ActionBarActivity
             intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, (Uri) null);
             this.startActivityForResult(intent, 5);
         }
+        else if(id == R.id.about){
+            Intent about = new Intent();
+            about.setClass(this,About.class);
+            startActivity(about);
+        }
 
         return super.onOptionsItemSelected(item);
     }

@@ -118,9 +118,10 @@ public class AddNew extends ActionBarActivity  {
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.teal)));
         bar.setDisplayHomeAsUpEnabled(true);
         ArrayList<String> arrayList = new ArrayList<String>();
-        arrayList.add(0, "every hour");
-        arrayList.add(1, "every day");
-        arrayList.add(2, "every week");
+        arrayList.add(0, "every minute");
+        arrayList.add(1, "every hour");
+        arrayList.add(2, "every day");
+        arrayList.add(3, "every week");
         spinner = (Spinner) findViewById(R.id.spinnerAdd);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arrayList);
@@ -133,14 +134,18 @@ public class AddNew extends ActionBarActivity  {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
+                        mNewKnot.repeatingTime=60000;
+                        mPreviousKnot.repeatingTime = 60000;
+                        break;
+                    case 1:
                         mNewKnot.repeatingTime = 3600000;
                         mPreviousKnot.repeatingTime = 3600000;
                         break;
-                    case 1:
+                    case 2:
                         mNewKnot.repeatingTime = 86400000;
                         mPreviousKnot.repeatingTime = 86400000;
                         break;
-                    case 2:
+                    case 3:
                         mNewKnot.repeatingTime = 604800000;
                         mPreviousKnot.repeatingTime = 604800000;
                         break;
@@ -149,8 +154,8 @@ public class AddNew extends ActionBarActivity  {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                mNewKnot.repeatingTime = 3600000;
-                mPreviousKnot.repeatingTime = 3600000;
+                mNewKnot.repeatingTime = 60000;
+                mPreviousKnot.repeatingTime = 60000;
             }
         });
         checkBox = (CheckBox) findViewById(R.id.checkBoxadd);
@@ -220,7 +225,21 @@ public class AddNew extends ActionBarActivity  {
         if (prevIsRepeating == 1) {
             checkBox.setChecked(true);
             spinner.setVisibility(View.VISIBLE);
-            spinner.setSelection((int) (prevRepeatingTime % 10));
+            switch ((int)(prevRepeatingTime/10000)){
+                case 6:
+                    spinner.setSelection(0);
+                    break;
+                case 360:
+                    spinner.setSelection(1);
+                    break;
+                case 8640:
+                    spinner.setSelection(2);
+                    break;
+                case 60480:
+                    spinner.setSelection(3);
+                    break;
+            }
+
         } else {
             spinner.setVisibility(View.GONE);
             checkBox.setChecked(false);

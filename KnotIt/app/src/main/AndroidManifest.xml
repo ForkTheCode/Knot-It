@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.forkthecode.knotit" >
-
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -9,39 +8,47 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <receiver android:name="utilities.AlarmReceiver">
+        <receiver android:name="utilities.AlarmReceiver" >
         </receiver>
-        <receiver android:name="utilities.OnDone">
+        <receiver android:name="utilities.OnDone" >
         </receiver>
+
         <activity
-            android:name="com.forkthecode.knotit.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.forkthecode.knotit.AddNew"
-            android:label="@string/title_activity_add_new"
-            android:configChanges="orientation|screenSize">
+            android:name=".AddNew"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_add_new" >
             <intent-filter>
-                <action android:name="android.intent.action.SEND"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="image/*"/>
-                <data android:mimeType="text/plain"/>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+                <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.forkthecode.knotit.DetailView"
+            android:name=".DetailView"
             android:label="@string/title_activity_detail_view" >
+        </activity>
+        <activity
+            android:name=".About"
+            android:label="@string/title_activity_about" >
         </activity>
     </application>
 

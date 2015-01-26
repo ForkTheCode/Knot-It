@@ -50,8 +50,12 @@ public class CustomArrayAdapter extends ArrayAdapter<Knot> {
         CheckBox checkBox = (CheckBox) output.findViewById(R.id.checkBoxknot);
         if(knot.isRepeating==1){
             checkBox.setVisibility(View.VISIBLE);
+
             if(knot.repeatingTime == 3600000l) {
                 checkBox.setText(context.getString(R.string.repeat_every_hour));
+            }
+            else if(knot.repeatingTime == 60000l){
+                checkBox.setText(context.getString(R.string.repeat_every_min));
             }
             else if(knot.repeatingTime == 86400000l) {
                 checkBox.setText(context.getString(R.string.repeat_every_day));
