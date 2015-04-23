@@ -114,6 +114,9 @@ public class DetailView extends ActionBarActivity implements onImageLoaded{
             if(repeatingTime == 3600000l) {
                     checkBox.setText(getString(R.string.repeat_every_hour));
             }
+            else if(repeatingTime == 60000l){
+                checkBox.setText(getString(R.string.repeat_every_min));
+            }
              else if(repeatingTime == 86400000l) {
                 checkBox.setText(getString(R.string.repeat_every_day));
             }
