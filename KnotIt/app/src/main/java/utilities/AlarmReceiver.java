@@ -57,7 +57,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         PendingIntent contentIntent = PendingIntent.getActivity(context, timeInt, resultIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT );
         SharedPreferences prefs_sound = context.getSharedPreferences("sound",Context.MODE_PRIVATE);
-        String sound = prefs_sound.getString("sound_uri",RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION).toString());
+        String sound = prefs_sound.getString("sound_uri",RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM).toString());
         Uri alarmSound = Uri.parse(sound);
         SharedPreferences prefs = context.getSharedPreferences("vibrate",Context.MODE_PRIVATE);
         long[] pattern = defaultL;
