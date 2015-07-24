@@ -8,8 +8,8 @@ android {
         applicationId "com.forkthecode.knotit"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 8
-        versionName "1.5.2"
+        versionCode 9
+        versionName "1.5.3"
     }
     buildTypes {
         release {

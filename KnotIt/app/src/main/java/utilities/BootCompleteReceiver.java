@@ -13,7 +13,8 @@ public class BootCompleteReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         ArrayList<Knot> knotList = tools.getKnotsArrayList(context,KnotitOpenHelper.KNOTS_TABLE_NAME);
         for (Knot knot : knotList) {
-            tools.setReminder(context,knot);
+            if(knot.reminderTimestamp >= tools.getCurrentTime())
+                tools.setReminder(context,knot);
         }
     }
 }

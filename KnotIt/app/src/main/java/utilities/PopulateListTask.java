@@ -21,7 +21,7 @@ public class PopulateListTask extends AsyncTask<String, Integer, ArrayList<Knot>
 		mFragment = fragment;
 	}
 	public interface onListPopulated{
-		public void setAdapter(ArrayList<Knot> list);
+		 void setAdapter(ArrayList<Knot> list);
 	}
 	
 	public onListPopulated delegate;

@@ -287,10 +287,13 @@ public class MainActivity extends ActionBarActivity
             editor.apply();
         }
         else if(id == R.id.setSound){
+            SharedPreferences prefs_sound = this.getSharedPreferences("sound",Context.MODE_PRIVATE);
+            String sound = prefs_sound.getString("sound_uri",RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM).toString());
+            Uri alarmSound = Uri.parse(sound);
             Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
             intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_ALARM);
             intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, "Select Tone");
-            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, (Uri) null);
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, alarmSound);
             this.startActivityForResult(intent, 5);
         }
         else if(id == R.id.about){
@@ -328,7 +331,6 @@ public class MainActivity extends ActionBarActivity
         final FragmentManager fragmentManager = getSupportFragmentManager();
         final MainActivityFragment fragment = new MainActivityFragment();
         ActionBar bar = getSupportActionBar();
-
         type = position;
         if(position == 0){
             Bundle b = new Bundle();
